@@ -1,0 +1,174 @@
+Tried aggregator 4 times.
+MIP Presolve eliminated 458649 rows and 118885 columns.
+MIP Presolve modified 305146 coefficients.
+Aggregator did 16042 substitutions.
+Reduced MIP has 497488 rows, 270819 columns, and 1372921 nonzeros.
+Reduced MIP has 247478 binaries, 8948 generals, 0 SOSs, and 0 indicators.
+Presolve time = 10.62 sec. (3047.05 ticks)
+Found incumbent of value 7540.000000 after 12.94 sec. (3609.85 ticks)
+Elapsed time = 79.22 sec. (10000.13 ticks) for 28% of probing (1858 vars fixed)
+Probing fixed 2899 vars, tightened 389 bounds.
+Probing time = 93.46 sec. (13242.07 ticks)
+Tried aggregator 4 times.
+MIP Presolve eliminated 67959 rows and 32743 columns.
+MIP Presolve modified 66229 coefficients.
+Aggregator did 94 substitutions.
+Reduced MIP has 429435 rows, 237982 columns, and 1218471 nonzeros.
+Reduced MIP has 215223 binaries, 8716 generals, 0 SOSs, and 0 indicators.
+Presolve time = 8.16 sec. (2641.12 ticks)
+Elapsed time = 37.33 sec. (10000.58 ticks) for 55% of probing
+Probing time = 54.18 sec. (11030.22 ticks)
+Tried aggregator 3 times.
+MIP Presolve eliminated 35678 rows and 32378 columns.
+MIP Presolve modified 1638 coefficients.
+Aggregator did 133 substitutions.
+Reduced MIP has 393624 rows, 205471 columns, and 1131680 nonzeros.
+Reduced MIP has 182825 binaries, 8603 generals, 0 SOSs, and 0 indicators.
+Presolve time = 6.54 sec. (2082.37 ticks)
+Elapsed time = 39.12 sec. (10000.23 ticks) for 51% of probing
+Probing time = 50.10 sec. (11513.74 ticks)
+Clique table members: 771314.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time = 3.84 sec. (1326.87 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                         7540.0000     1420.0000     1378   81.17%
+*     0+    0                         7360.0000     1420.0000     1378   80.71%
+      0     0     2920.0000   496     7360.0000     2920.0000     1378   60.33%
+*     0+    0                         6600.0000     2920.0000     4097   55.76%
+      0     0     3311.5842   969     6600.0000    Cuts: 6991     4097   49.82%
+      0     0     3410.0000   782     6600.0000    Cuts: 3724     6014   48.33%
+      0     0     3420.6000   641     6600.0000    Cuts: 4908     7160   48.17%
+*     0+    0                         6200.0000     3420.6000     7160   44.83%
+*     0+    0                         5420.0000     3420.6000     7160   36.89%
+      0     0     3470.4082   585     5420.0000    Cuts: 1519     8829   35.97%
+      0     0     3480.9901   429     5420.0000    Cuts: 1074    10988   35.78%
+
+Repeating presolve.
+Tried aggregator 4 times.
+MIP Presolve eliminated 107842 rows and 86108 columns.
+MIP Presolve modified 667 coefficients.
+Aggregator did 605 substitutions.
+Reduced MIP has 285177 rows, 118758 columns, and 867768 nonzeros.
+Reduced MIP has 103463 binaries, 6351 generals, 0 SOSs, and 0 indicators.
+Presolve time = 6.67 sec. (2084.96 ticks)
+Probing time = 20.39 sec. (5231.56 ticks)
+Tried aggregator 4 times.
+MIP Presolve eliminated 38085 rows and 42100 columns.
+MIP Presolve modified 761 coefficients.
+Aggregator did 1053 substitutions.
+Reduced MIP has 246039 rows, 75605 columns, and 770192 nonzeros.
+Reduced MIP has 61166 binaries, 5536 generals, 0 SOSs, and 0 indicators.
+Presolve time = 6.34 sec. (1928.20 ticks)
+Probing fixed 1 vars, tightened 0 bounds.
+Probing time = 8.66 sec. (2371.62 ticks)
+Tried aggregator 4 times.
+MIP Presolve eliminated 44021 rows and 23897 columns.
+MIP Presolve modified 3131 coefficients.
+Aggregator did 2882 substitutions.
+Reduced MIP has 199136 rows, 48826 columns, and 652862 nonzeros.
+Reduced MIP has 36683 binaries, 3715 generals, 0 SOSs, and 0 indicators.
+Presolve time = 3.82 sec. (1421.69 ticks)
+Probing time = 0.16 sec. (34.53 ticks)
+Tried aggregator 1 time.
+MIP Presolve modified 200 coefficients.
+Reduced MIP has 199136 rows, 48826 columns, and 652862 nonzeros.
+Reduced MIP has 36683 binaries, 3715 generals, 0 SOSs, and 0 indicators.
+Presolve time = 0.66 sec. (239.82 ticks)
+Represolve time = 49.83 sec. (15315.94 ticks)
+Probing fixed 3 vars, tightened 0 bounds.
+Probing time = 2.40 sec. (403.28 ticks)
+Clique table members: 151240.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time = 3.29 sec. (1366.77 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                         5420.0000     3480.9901    24396   35.78%
+      0     0     3490.0000   137     5420.0000     3490.0000    24396   35.61%
+*     0+    0                         4680.0000     3490.0000    25395   25.43%
+      0     0     3546.6667   141     4680.0000     Cuts: 919    25395   24.22%
+      0     0     3560.0000   160     4680.0000    Cuts: 1420    26560   23.93%
+      0     0     3560.0000   142     4680.0000    Cuts: 2864    30066   23.93%
+*     0+    0                         4020.0000     3560.0000    30066   11.44%
+      0     0     3560.0000   143     4020.0000    Cuts: 2573    31315   11.44%
+      0     0     3560.0000   138     4020.0000    Cuts: 2106    33450   11.44%
+*     0+    0                         3860.0000     3560.0000    35646    7.77%
+
+Clique cuts applied:  365
+Implied bound cuts applied:  583
+Flow cuts applied:  164
+Mixed integer rounding cuts applied:  5208
+Zero-half cuts applied:  97
+Lift and project cuts applied:  5
+Gomory fractional cuts applied:  70
+
+Root node processing (before b&c):
+  Real time             =  589.06 sec. (146871.28 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =  589.06 sec. (146871.28 ticks)
+
+Populate: phase II 
+Tried aggregator 4 times.
+MIP Presolve eliminated 458649 rows and 118885 columns.
+MIP Presolve modified 305146 coefficients.
+Aggregator did 16042 substitutions.
+Reduced MIP has 497488 rows, 270819 columns, and 1372921 nonzeros.
+Reduced MIP has 247478 binaries, 8948 generals, 0 SOSs, and 0 indicators.
+Presolve time = 10.68 sec. (3047.05 ticks)
+
+Root node processing (before b&c):
+  Real time             =   10.88 sec. (3114.97 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    0.00 sec. (0.00 ticks)
+  Sync time (average)   =    0.00 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =   10.88 sec. (3114.97 ticks)
+
+------------------------------------------------------------
+Sender: LSF System <lsf@ebi-178>
+Subject: Job 6132592: <python signettrainer_subgraph.py> in cluster <EBI> Done
+
+Job <python signettrainer_subgraph.py> was submitted from host <ebi-001> by user <giannis> in cluster <EBI>.
+Job was executed on host(s) <4*ebi-178>, in queue <research-rh6>, as user <giannis> in cluster <EBI>.
+</homes/giannis> was used as the home directory.
+</homes/giannis/signettrainer_files/files_MKN1> was used as the working directory.
+Started at Thu Jul 31 04:19:32 2014
+Results reported at Thu Jul 31 04:31:14 2014
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+python signettrainer_subgraph.py
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               1453.70 sec.
+    Max Memory :             3530 MB
+    Average Memory :         1942.08 MB
+    Total Requested Memory : 16000.00 MB
+    Delta Memory :           12470.00 MB
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               2 MB
+
+    Max Processes :          3
+    Max Threads :            7
+
+The output (if any) is above this job summary.
+

@@ -1,0 +1,7 @@
+digraph {
+
+"SP1"->"PTGIS_G"	[penwidth=1.000000, color=black]
+"TEAD1"->"PTGIS_G"	[penwidth=1.000000, color=black]
+
+
+}

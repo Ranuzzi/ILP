@@ -1,0 +1,6 @@
+mipgap	0.10
+timelimit	72000.000000
+number_solutions	1
+measurements_file	leks_measurements.txt
+inputs_file	leks_input.txt
+network_file	leks_net.txt

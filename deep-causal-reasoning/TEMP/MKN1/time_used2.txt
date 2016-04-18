@@ -1,0 +1,3 @@
+to convert scipy to sympy sparse matrices=35.600740 
+to make variable=24.375782 
+to make constraints=0.000001 

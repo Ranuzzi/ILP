@@ -1,0 +1,6 @@
+\contentsline {section}{\numberline {1}Introduction}{2}{section.1}
+\contentsline {section}{\numberline {2}Objects}{2}{section.2}
+\contentsline {section}{\numberline {3}Constraints}{3}{section.3}
+\contentsline {section}{\numberline {4}Code}{3}{section.4}
+\contentsline {section}{\numberline {5}Toy example}{5}{section.5}
+\contentsline {section}{\numberline {6}MKNI cell line data}{5}{section.6}

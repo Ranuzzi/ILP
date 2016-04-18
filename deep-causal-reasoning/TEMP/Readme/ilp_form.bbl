@@ -1,0 +1,18 @@
+\begin{thebibliography}{1}
+
+\bibitem{cplex}
+{IBM ILOG CPLEX Optimizer}.
+\newblock
+  \url{http://www-01.ibm.com/software/commerce/optimization/cplex-optimizer/index.html}.
+
+\bibitem{SCINUM}
+S.~Chris~Colbert Stefan van~der Walt and Gael Varoquaux.
+\newblock The numpy array: A structure for efficient numerical computation.
+\newblock {\em Computing in Science and Engineering}, 13:22--30, 2011.
+
+\bibitem{Sympy}
+{SymPy Development Team}.
+\newblock {\em SymPy: Python library for symbolic mathematics}, 2014.
+\newblock \url{http://www.sympy.org}.
+
+\end{thebibliography}

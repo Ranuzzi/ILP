@@ -1,0 +1,204 @@
+Job <python signettrainer_subgraph.py> was submitted from host <ebi-001> by user <dlekshmi> in cluster <EBI>.
+Job was executed on host(s) <ebi1-082>, in queue <research-rh6>, as user <dlekshmi> in cluster <EBI>.
+</homes/dlekshmi> was used as the home directory.
+</homes/dlekshmi/ILP/python_interface_MKN1_cell_line> was used as the working directory.
+Started at Sat Dec 27 15:14:26 2014
+Results reported at Sat Dec 27 15:49:14 2014
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+python signettrainer_subgraph.py
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               2084.05 sec.
+    Max Memory :             3227 MB
+    Average Memory :         1975.46 MB
+    Total Requested Memory : 16000.00 MB
+    Delta Memory :           12773.00 MB
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Swap :               4442 MB
+
+    Max Processes :          3
+    Max Threads :            7
+
+The output (if any) follows:
+
+Warning:  Output names have been modified to conform to LP format.
+Default row names c1, c2 ... being created.
+Aggregator has done 15854 substitutions...
+Tried aggregator 4 times.
+MIP Presolve eliminated 458560 rows and 118830 columns.
+MIP Presolve modified 305109 coefficients.
+Aggregator did 16000 substitutions.
+Reduced MIP has 497619 rows, 270916 columns, and 1373274 nonzeros.
+Reduced MIP has 247575 binaries, 8948 generals, 0 SOSs, and 0 indicators.
+Elapsed time 10.02 sec. for 3% of probing (359 vars fixed).
+Elapsed time 20.04 sec. for 6% of probing (506 vars fixed).
+Elapsed time 30.06 sec. for 7% of probing (584 vars fixed).
+Elapsed time 40.07 sec. for 9% of probing (597 vars fixed).
+Elapsed time 50.08 sec. for 15% of probing (717 vars fixed).
+Elapsed time 60.08 sec. for 24% of probing (843 vars fixed).
+Probing fixed 873 vars, tightened 12 bounds.
+Probing time =   63.24 sec.
+Aggregator has done 180 substitutions...
+Tried aggregator 4 times.
+MIP Presolve eliminated 67656 rows and 32520 columns.
+MIP Presolve modified 66299 coefficients.
+Aggregator did 181 substitutions.
+Reduced MIP has 429782 rows, 238215 columns, and 1219313 nonzeros.
+Reduced MIP has 215442 binaries, 8730 generals, 0 SOSs, and 0 indicators.
+Presolve time =   77.46 sec.
+Found feasible solution after 77.92 sec.  Objective = 7540.0000
+Elapsed time 10.02 sec. for 4% of probing.
+Elapsed time 20.02 sec. for 14% of probing.
+Elapsed time 30.03 sec. for 24% of probing.
+Elapsed time 40.04 sec. for 33% of probing.
+Probing time =   41.49 sec.
+Clique table members: 1696152.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time =    4.59 sec.
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                         7540.0000                   2128     --- 
+*     0+    0                         7360.0000                   2128     --- 
+      0     0     2850.0000   908     7360.0000     2850.0000     2128   61.28%
+*     0+    0                         6680.0000     2850.0000     5788   57.34%
+      0     0     3240.9000  2326     6680.0000    Cuts: 7657     5788   51.48%
+      0     0     3330.9000  2350     6680.0000    Cuts: 4246     7276   50.14%
+Elapsed time 10.00 sec. for 409100 of 435914 candidates for flow covers
+      0     0     3360.9000  2639     6680.0000    Cuts: 5050     7825   49.69%
+Elapsed time 10.00 sec. for 434913 of 439376 candidates for flow covers
+      0     0     3360.9000  2657     6680.0000    Cuts: 1553     8210   49.69%
+Elapsed time 10.00 sec. for 422491 of 440495 candidates for flow covers
+      0     0     3370.9000  2647     6680.0000    Cuts: 1017     8923   49.54%
+Elapsed time 10.00 sec. for 403174 of 440707 candidates for flow covers
+      0     0     3390.9000  3005     6680.0000    Cuts: 1841     9499   49.24%
+Elapsed time 10.00 sec. for 399038 of 441650 candidates for flow covers
+      0     0     3400.9000  3076     6680.0000    Cuts: 2617    10209   49.09%
+      0     0     3400.9000  3099     6680.0000     Cuts: 879    10470   49.09%
+Heuristic still looking.
+*     0+    0                         4660.0000     3400.9000    10470   27.02%
+      0     2     3400.9000  3099     4660.0000     3400.9000    10470   27.02%
+Elapsed real time = 531.66 sec. (tree size =  0.01 MB, solutions = 1)
+      2     4     3401.0000  2534     4660.0000     3400.9000    10785   27.02%
+      4     6     3401.0000  2540     4660.0000     3400.9000    11121   27.02%
+      5     7     3411.0000  2107     4660.0000     3401.0000    11600   27.02%
+      6     8     3411.0000  2291     4660.0000     3401.0000    12317   27.02%
+     10    12     3411.0000  2034     4660.0000     3401.0000    12769   27.02%
+     11    13     3411.0000  2747     4660.0000     3401.0000    13022   27.02%
+     15    16     3470.0000  1622     4660.0000     3401.0000    15678   27.02%
+     17    18     3412.5960  2060     4660.0000     3401.0000    18347   27.02%
+     19    20     3470.0000  1620     4660.0000     3401.0000    21632   27.02%
+     21    22     3470.0000  1613     4660.0000     3401.0000    26926   27.02%
+Elapsed real time = 569.65 sec. (tree size =  0.35 MB, solutions = 1)
+     29    30     3470.0000  1542     4660.0000     3401.0000    37343   27.02%
+     35    36     3481.5842  1593     4660.0000     3401.0000    39286   27.02%
+     47    46     3500.0000  1317     4660.0000     3401.0000    42062   27.02%
+     67    64     3465.8000  1605     4660.0000     3401.0000    45815   27.02%
+     75    72     3475.8000  1356     4660.0000     3401.0000    46769   27.02%
+     97    90     3485.8000  1516     4660.0000     3401.0000    49436   27.02%
+    114    97     3600.0000   445     4660.0000     3401.0000    53266   27.02%
+    138   116     3605.0000   298     4660.0000     3401.0000    55512   27.02%
+    168   142     3690.6931  1784     4660.0000     3401.0000    57248   27.02%
+    185   159     3640.0000   302     4660.0000     3401.0000    59104   27.02%
+Elapsed real time = 659.75 sec. (tree size = 13.12 MB, solutions = 1)
+    245   213     3740.0000   116     4660.0000     3401.0000    61488   27.02%
+    261   228     3740.8000  1108     4660.0000     3401.0000    62429   27.02%
+    318   271     3412.5960  2130     4660.0000     3401.0000    64574   27.02%
+    342   284     3435.8000  2496     4660.0000     3401.0000    66359   27.02%
+    362   298     3465.8000  2336     4660.0000     3401.0000    67046   27.02%
+    414   346     3545.8000  2011     4660.0000     3401.0000    68666   27.02%
+    438   368     3555.8000  1384     4660.0000     3401.0000    69877   27.02%
+    470   396     3780.0000    74     4660.0000     3401.0000    71037   27.02%
+    537   452     3761.6000   605     4660.0000     3401.0000    73198   27.02%
+    573   476     3760.0000   164     4660.0000     3401.0000    74618   27.02%
+Elapsed real time = 733.29 sec. (tree size = 61.15 MB, solutions = 1)
+    582   482     3810.0000    74     4660.0000     3401.0000    74745   27.02%
+    645   543     3820.0000    62     4660.0000     3401.0000    75304   27.02%
+    664   562     3780.0000   132     4660.0000     3401.0000    76052   27.02%
+    712   608     3800.0000   126     4660.0000     3401.0000    76321   27.02%
+    749   637     4182.5861   443     4660.0000     3401.0000    79841   27.02%
+    766   645     3412.5960  1951     4660.0000     3401.0000    82183   27.02%
+    782   658     3470.0000  1525     4660.0000     3401.0000    83447   27.02%
+    799   674     3500.0000  1828     4660.0000     3401.0000    84445   27.02%
+    809   684     3860.8000    73     4660.0000     3401.0000    84897   27.02%
+    825   696     3401.0000  2553     4660.0000     3401.0000    86940   27.02%
+Elapsed real time = 795.68 sec. (tree size = 85.18 MB, solutions = 1)
+    870   733     4360.0000    82     4660.0000     3401.0000    88094   27.02%
+    880   743     3412.5960  1731     4660.0000     3411.0000    89459   26.80%
+    904   763     3434.8000  2298     4660.0000     3411.0000    92152   26.80%
+    986   840     3445.8000  2124     4660.0000     3411.0000    94546   26.80%
+    998   852     3455.8000  1907     4660.0000     3411.0000    94630   26.80%
+   1022   874     3534.7960  1636     4660.0000     3411.0000    95635   26.80%
+   1127   975     3840.0000   186     4660.0000     3411.0000    97863   26.80%
+   1165  1012     3607.9170   831     4660.0000     3411.0000    99094   26.80%
+   1181  1025     3685.9703   810     4660.0000     3411.0000   100210   26.80%
+*  1224+  705                         4400.0000     3411.0000   108342   22.48%
+*  1224+  469                         4040.0000     3610.0000   141035   10.64%
+*  1224+  312                         3840.0000     3610.0000   141035    5.99%
+
+Clique cuts applied:  2045
+Cover cuts applied:  620
+Implied bound cuts applied:  181
+Flow cuts applied:  75
+Mixed integer rounding cuts applied:  5318
+Zero-half cuts applied:  186
+Gomory fractional cuts applied:  279
+
+Root node processing (before b&c):
+  Real time             = 1537.53
+Parallel b&c, 4 threads:
+  Real time             =  323.71
+  Sync time (average)   =    0.16
+  Wait time (average)   =    0.00
+                          -------
+Total (root+branch&cut) = 1861.23 sec.
+
+Populate: phase II 
+Aggregator has done 15854 substitutions...
+Tried aggregator 4 times.
+MIP Presolve eliminated 458560 rows and 118830 columns.
+MIP Presolve modified 305109 coefficients.
+Aggregator did 16000 substitutions.
+Reduced MIP has 497619 rows, 270916 columns, and 1373274 nonzeros.
+Reduced MIP has 247575 binaries, 8948 generals, 0 SOSs, and 0 indicators.
+Presolve time =    6.06 sec.
+Elapsed time 10.01 sec. for 3% of probing (334 vars fixed).
+Elapsed time 20.03 sec. for 5% of probing (501 vars fixed).
+Elapsed time 30.05 sec. for 7% of probing (579 vars fixed).
+Elapsed time 40.06 sec. for 9% of probing (597 vars fixed).
+Elapsed time 50.06 sec. for 14% of probing (705 vars fixed).
+Elapsed time 60.07 sec. for 23% of probing (838 vars fixed).
+Probing fixed 873 vars, tightened 12 bounds.
+Probing time =   64.63 sec.
+Clique table members: 1916579.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time =    6.75 sec.
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                         3840.0000                   3115     --- 
+      0     0     2850.0000   407     3840.0000     2850.0000     3115   25.78%
+
+Root node processing (before b&c):
+  Real time             =   72.51
+Parallel b&c, 4 threads:
+  Real time             =    0.00
+  Sync time (average)   =    0.00
+  Wait time (average)   =    0.00
+                          -------
+Total (root+branch&cut) =   72.51 sec.
+

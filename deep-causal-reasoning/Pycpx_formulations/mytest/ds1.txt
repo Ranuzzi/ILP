@@ -1,0 +1,10 @@
+dist_{j,0} 0.0
+dist_{g,0} 0.0
+dist_{c,0} 1.0
+dist_{y,0} 0.0
+dist_{h,0} 0.0
+dist_{e,0} 100.0
+dist_{f,0} 0.0
+dist_{d,0} 0.0
+dist_{a,0} 0.0
+dist_{b,0} 100.0

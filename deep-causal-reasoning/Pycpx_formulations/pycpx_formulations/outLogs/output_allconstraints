@@ -1,0 +1,54 @@
+
+------------------------------------------------------------
+Sender: LSF System <lsf@loom7>
+Subject: Job 4443975: <run1> in cluster <EBI> Exited
+
+Job <run1> was submitted from host <ebi-001> by user <dlekshmi> in cluster <EBI>.
+Job was executed on host(s) <loom7>, in queue <research-rh6>, as user <dlekshmi> in cluster <EBI>.
+</homes/dlekshmi> was used as the home directory.
+</homes/dlekshmi/ILP/python_interface_MKN1_cell_line/pycpx_formulations> was used as the working directory.
+Started at Fri Nov  7 13:43:49 2014
+Results reported at Fri Nov  7 13:49:31 2014
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+#!/bin/bash
+#
+#BSUB -J run1		                   # job name                        # wall-clock time (hrs:mins)
+#BSUB -n 1
+#$ -cwd 
+#$ -V
+#BSUB -e errors.%J.openmp                  # error file name in which %J is replaced by the job ID
+#BSUB -o output.%J.openmp                  # output file name in which %J is replaced by the job ID
+#BSUB -M 100000
+#BSUB -R "rusage[mem=100000]"
+#BSUB -R "rusage[tmp=100000]"
+
+python pycpx_formulation3.py
+
+------------------------------------------------------------
+
+TERM_MEMLIMIT: job killed after reaching LSF memory usage limit.
+Exited with exit code 137.
+
+Resource usage summary:
+
+    CPU time :               367.49 sec.
+    Max Memory :             100000 MB
+    Average Memory :         44642.72 MB
+    Total Requested Memory : 100000.00 MB
+    Delta Memory :           0.00 MB
+    (Delta: the difference between total requested memory and actual max usage.)
+    Max Processes :          4
+    Max Threads :            5
+
+The output (if any) is above this job summary.
+
+
+
+PS:
+
+Read file <errors.4443975.openmp> for stderr output of this job.
+

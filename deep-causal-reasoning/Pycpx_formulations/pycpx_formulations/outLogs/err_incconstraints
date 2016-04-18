@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "pycpx_formulation3.py", line 110, in <module>
+    m.minimize(ABS.sum())
+  File "pyconcert.pyx", line 2170, in pycpx.pyconcert.CPlexModel.minimize (pycpx/pyconcert.cpp:16916)
+  File "pyconcert.pyx", line 1897, in pycpx.pyconcert.CPlexModel.solve (pycpx/pyconcert.cpp:16541)
+  File "pyconcert.pyx", line 2130, in pycpx.pyconcert.CPlexModel.solve (pycpx/pyconcert.cpp:16235)
+pycpx.pyconcert.CPlexException: IloAlgorithm cannot extract extractable

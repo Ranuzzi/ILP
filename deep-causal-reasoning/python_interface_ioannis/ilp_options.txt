@@ -1,0 +1,8 @@
+mipgap	0.05
+timelimit	10800.000000
+number_solutions	10
+measurements_file	measurements_mcf7_merged.txt
+inputs_file	inputs_merged.txt
+network_file	Network_merged_ind.sif
+species_file	species_merged.txt
+out_file	output.txt

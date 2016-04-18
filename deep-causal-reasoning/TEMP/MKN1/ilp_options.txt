@@ -1,0 +1,6 @@
+mipgap	0.10
+timelimit	72000.000000
+number_solutions	1
+measurements_file	measurements.txt
+inputs_file	leks_inputs.txt
+network_file	reactome_directed_signed.sif

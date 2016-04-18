@@ -1,0 +1,8 @@
+digraph {
+
+"d"->"e"	[penwidth=1.000000, color=black]
+"a"->"b"	[penwidth=1.000000, color=red]
+"a"->"c"	[penwidth=1.000000, color=red]
+
+
+}

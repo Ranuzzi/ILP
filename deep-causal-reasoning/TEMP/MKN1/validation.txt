@@ -1,0 +1,5 @@
+slope	-4.525987
+intercept	128.057095
+correlation_coef	-0.111300
+p-value	0.604626
+stderr	8.615920

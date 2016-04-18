@@ -1,0 +1,281 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Arsclassica Article
+% LaTeX Template
+% Version 1.1 (10/6/14)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Lorenzo Pantieri (http://www.lorenzopantieri.net) with extensive modifications by:
+% Vel (vel@latextemplates.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[
+10pt, % Main document font size
+letter, % Paper type, use 'letterpaper' for US Letter paper
+oneside, % One page layout (no page indentation)
+%twoside, % Two page layout (page indentation for binding and different headers)
+%headinclude,footinclude, % Extra spacing for the header and footer
+BCOR02mm, % Binding correction
+]{scrartcl}
+\usepackage{url}
+\input{structure.tex} % Include the structure.tex file which specified the document structure and layout
+
+\hyphenation{Fortran hy-phen-ation} % Specify custom hyphenation points in words with dashes where you would like hyphenation to occur, or alternatively, don't put any dashes in a word to stop hyphenation altogether
+\usepackage{verbatim}
+%----------------------------------------------------------------------------------------
+%	TITLE AND AUTHOR(S)
+%----------------------------------------------------------------------------------------
+
+\title{\normalfont\spacedallcaps{ILP reformulation}} % The article title
+
+\author{\spacedlowsmallcaps{Lekshmi, Mike}} % The article author(s) - author affiliations need to be specified in the AUTHOR AFFILIATIONS block
+
+\date{} % An optional date to appear under the author(s)
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+%----------------------------------------------------------------------------------------
+%	HEADERS
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\sectionmark}[1]{\markright{\spacedlowsmallcaps{#1}}} % The header for all pages (oneside) or for even pages (twoside)
+%\renewcommand{\subsectionmark}[1]{\markright{\thesubsection~#1}} % Uncomment when using the twoside option - this modifies the header on odd pages
+\lehead{\mbox{\llap{\small\thepage\kern1em\color{halfgray} \vline}\color{halfgray}\hspace{0.5em}\rightmark\hfil}} % The header style
+
+\pagestyle{scrheadings} % Enable the headers specified in this block
+
+%----------------------------------------------------------------------------------------
+%	TABLE OF CONTENTS & LISTS OF FIGURES AND TABLES
+%----------------------------------------------------------------------------------------
+
+\maketitle % Print the title/author/date block
+
+\setcounter{tocdepth}{2} % Set the depth of the table of contents to show sections and subsections only
+
+\tableofcontents % Print the table of contents
+
+\listoffigures % Print the list of figures
+
+\listoftables % Print the list of tables
+
+%----------------------------------------------------------------------------------------
+%	ABSTRACT
+%----------------------------------------------------------------------------------------
+
+%\section*{Abstract} % This section will not appear in the table of contents due to the star (\section*)
+
+%\lipsum[1] % Dummy text
+
+%----------------------------------------------------------------------------------------
+%	AUTHOR AFFILIATIONS
+%----------------------------------------------------------------------------------------
+
+%{\let\thefootnote\relax\footnotetext{* \textit{Department of Biology, University of Examples, London, United Kingdom}}}
+
+%{\let\thefootnote\relax\footnotetext{\textsuperscript{1} \textit{Department of Chemistry, University of Examples, London, United Kingdom}}}
+
+%----------------------------------------------------------------------------------------
+
+\newpage % Start the article content on the second page, remove this if you have a longer abstract that goes onto the second page
+
+%----------------------------------------------------------------------------------------
+%	INTRODUCTION
+%----------------------------------------------------------------------------------------
+
+\section{Introduction}
+This document contains information about the implementation of Ioannis algorithm using matrices. The aim is to provide a simpler interface as a black box to use CPLEX using scipy/numpy arrays and sympy arrays.
+We first explain how Ioannis code is reformulated. 
+%\verb;;
+
+
+\section{Objects}
+This section explains the matrix objects that are being used. This is taken from the ILP formulation implemented by Ioannis.
+\begin{table}
+\caption{Table of Given Objects}
+\label{ob_giv}
+\centering
+\begin{tabular}{lll}
+\hline
+Objects& Dimensions &  Range \\
+\hline
+$\bf{M}$& nsp X nexp &  0,1,-1 \\
+$\bf{INPUTS}$& nsp X nexp &  -1,1,NaN\\
+$\sigma$& nr X 1  & -1,1\\
+\hline
+\end{tabular}
+\end{table}
+\begin{table}
+\caption{Table of Indices and Symbols}
+\label{ob_sym}
+\centering
+\begin{tabular}{ll}
+\hline
+Symbol/Index& Objects \\
+\hline
+$i$& index of species  \\
+$j$& index of experiment\\
+$k$& index of reaction\\
+nsp& number of species  \\
+nexp& number of experiments\\
+nr& number of reactions\\
+\hline
+\end{tabular}
+\end{table}
+\begin{table}
+\caption{Table of Objects in Optimization}
+\label{ob_opt}
+\begin{tabular}{llllll}
+\hline
+Symbol& Dimension& Upper bound& Lower Bound & type & Objectwt\\
+\hline
+$\bf{B}$ & nsp X nexp & 1 & -1 & I & 0 \\
+$\bf{X}$ & nsp X nexp & 1 & -1 & I & 0 \\
+$\bf{X+}$& nsp X nexp & 1 & 0 & B & 20 \\
+$\bf{X-}$& nsp X nexp & 1 & 0 & B & 20 \\
+$\bf{U+}$& nr X nexp & 1 & 0 & B & 0 \\
+$\bf{U-}$& nr X nexp & 1 & 0 & B & 0 \\
+$\bf{ABS}$& nsp X nexp & 2 & 0 & I & 100 \\
+$\bf{D}$& nsp X nexp & 100 & 0 & C & 0 \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}
+\caption{Table of Helper Matrices in Optimization}
+\label{obj_help}
+\begin{tabular}{l|l|p{10cm} }
+\hline
+Symbol& Dimension& Condition\\
+\hline
+$\bf{R}$ & nr X nexp &  $R_{k,i}=1$ if i is a reactant in k , else $R_{k,i}=0$\\
+$\bf{P}$ & nr X nexp &   $P_{k,i}=1$ if i is a product in k , else $P_{k,i}=0$ \\
+$\bf{I}$& nsp X nexp &    $I_{i,j}=1$ if i is an input in j  , else $I_{i,j}=0$\\
+$\bf{I_{nan}}$& nsp X nexp &  $I_{nan_{i,j}}=1$ if i is an input whose value is not 'NaN' in j, else $I_{nan_{i,j}}=0$ \\
+$\bf{P_{nI}}$& nr X nr  & Diagonal matrix where an entry on the diagonal is 1 if the product of k is not an input $I_{i,j}=0$ \\
+$\bf{R_{d}}$& nr X nsp & $R_{d_{k,i}}=1$ is i is a reactant in k whose product is not an input $P_{nI_{k,k}}=0 $,else $R_{d_{k,i}}=0$   \\
+$\bf{P_{d}}$& nr X nsp &  $P_{d_{k,i}}=1$ is i is a product in k whose product is not an input $P_{nI_{k,k}}=0 $ , else $P_{d_{k,i}}=0$  \\
+$\bf{M_{ind}}$& nsp X nexp & $M_{ind_{i,j}}=1$ if i is measured in j  , else $M_{ind_{i,j}}=0$ \\
+$\bf{USR}$& nsp X nexp & $USR_{i,j}=0$ if species i in experiment j has a reaction upstream of it, else $USR_{i,j}=1$  \\
+$\bf{notI}$& nsp X nexp & complement of $\bf{I}$ \\
+\hline
+\end{tabular}
+\end{table}
+
+\section{Constraints}
+This section lists the constraints that are being used. They are simply being re-written using the matrix notation. 
+\begin{subequations}
+\begin{align}
+Up-\sigma*RX & \geq 0 \\
+Um+\sigma*RX & \geq 0 \\
+-Up+Um & \leq 1\\
+Up-Um-\sigma*RX & \leq 0 \\
+-Up+Um+\sigma*RX & \leq 0 \\
+P^TUp-Xp & \geq 0\\
+P^T Um-Xm & \geq 0\\
+X-Xp+Xm-B & = 0 \\
+X*I_{nan} & = INPUTS*I_{nan} \\
+(X-B)*USR & = 0 \\
+B*(notI) & =0 \\
+(X+ABS)*M_{ind} & \geq M*M_{ind}\\
+(X-ABS)*M_{ind} & \leq M*M_{ind}\\
+R_dD-P_dD+101*P_{nI}Up &\leq 100 \\
+R_dD-P_dD+101*P_{nI}Um &\leq 100 \\
+\end{align}
+\end{subequations}
+\section{Code}
+The code to use the matrix formulation as an input to CPLEX \cite{cplex} makes use of scipy and numpy arrays \cite{SCINUM}  to form the helper matrices. These are then converted to symbolic matrices and the objects in the obtimization are also declared as symbolic matrices. We make use of the SYMPY package \cite{Sympy} to do this. We write the constraints as symbolic expressions and pass it into CPLEX. 
+The goals achieved by this code is: 
+\begin{itemize}
+\item Read in the file and make the helper matrices. 
+\item Pass variables into CPLEX
+\item Pass constraints as expressions to CPLEX
+\item Run CPLEX optimization
+\end{itemize}
+The first task is done using functions from scipy and numpy arrays. The arrays are be saved using \verb;scipy.io.mmwrite; as \verb;.mtx; files and reused. The $R$ and $P$ matrix are built by reading the \verb;.sif; file. 
+These can saved as sparse scipy matrices. The measurement matrix and the $INPUT$ matrix are made by reading the \verb;measurements.txt; and \verb;inputs.txt; files and can also stored similarly using the \verb;scipy.io.mmwrite;. thes saved arrays and matrices are read using \verb;scipy.io.mmread; function. 
+%These are saved as \verb;Rf.mtx; and \verb;Pf.mtx; and are sparse scipy matrices. The measurement matrix and the $INPUT$ matrix are made by reading the \verb;measurements.txt; and \verb;inputs.txt; files and are stored as \verb;Mf.mtx; and \verb;Inputsf.mtx;. The $M_{ind}$ is stored as \verb;Mindf.mtx;.
+\\
+For the second and the third task, we defined a class named \verb;tocplex; that stores reads the variables and constraints to be passed to CPLEX. The functions and the class is defined in the file named \verb;sympybasedfns.py;. The attributes of the class are:
+\begin{itemize}
+\item \verb; tocplex.lb; Lower bounds (list of int)
+\item \verb; tocplex.ub; Upper bounds (list of int)
+\item \verb; tocplex.names; Names of variables (list of str)
+\item \verb; tocplex.vtypes; Types of variables (list of str)
+\item \verb; tocplex.obj; Object weights for each variable (list of int)
+\item \verb; tocplex.NAMEdict; Dictionary mapping each variable to an id to be used by CPLEX 
+\item \verb; tocplex.Makevars(self,a,n, m,UB,LB,Vtype,OBJ,name=True); To make the variables where a is a character (name of matrix) and n and m are number of rows and columns for the matrix. If name=True would produce the each element to by indexed by species name rather than species index. If true, the n should be a list. 
+\item \verb; tocplex.Makecons(self,expr,sens,rhs); To make constraints. expr is the symbolic expression, sens is a str either 'E','L' or 'G' accepted by CPLEX. rhs is a number or a sympy array indicating the rhs of the expression. 
+\item \verb; tocplex.cons_rows; list of rows of constraints
+\item \verb; tocplex.cons_rhs; list of rhs values of constraints
+\item \verb; tocplex.cons_senses; list of senses of constraints
+\item \verb; tocplex.cons_len; list of number of rows of constraints passed for each symbolic expression. 
+\end{itemize}
+
+Global functions which are defined in the same file called by the script are:
+\begin{itemize}
+\item  \verb; make_symbolic(a,n, m,name=True);
+\item  \verb; multiply_elem(X,I,makeint=True);
+\item \verb; sci2sym(sci);
+\item \verb; getsols(sol,S);
+\end{itemize}
+
+
+
+Note that any constraint that is made should consist only of sympy matrices. A conversion from scipy to sympy matrices using \verb;sci2sym(); before making the constraints. %This roughly takes 20-30 seconds for all the helper objects. 
+The variables are passed through the \verb;tocplex.Makevars(); function that takes in the name, dimensions, bounds and the weights and variable type as input for each variable. This takes roughly 30 seconds for all the variables.The constraints are passed as symbolic expressions through the \verb;tocplex.Makecons(); function.  For example:
+%This takes roughly 10 minutes for all the constraints. 
+\begin{verbatim}
+model=tocplex()
+A=model.Makevars('A',2,1,100,0,'I',0)
+abs=model.Makevars('abs',1,1,100,0,'I',0)
+model.Makecons(X*A,'L',b)
+model.Makecons(Y*A-abs,'L',0)
+\end{verbatim}
+
+Once the \verb;tocplex; object contains all the variables and the constraints, pass it to the \verb;cplex; object as usual. For example:
+\begin{verbatim}
+m=cplex.Cplex()
+m.variables.add(obj=model.obj,ub=model.ub,lb=model.lb,types=model.vtypes,names=model.names)
+m.linear_constraints.add(lin_expr=model.cons_rows,senses=model.cons_senses,rhs=model.cons_rhs)
+m.solve()
+\end{verbatim}
+List the solution using \verb;getsols();
+\begin{verbatim}
+nsol=m.solution.pool.get_num()
+sol=[ m.solution.pool.get_values(i) for i in range(nsol)]
+Asol=getsols(sol,A)
+\end{verbatim}
+\section{Toy example}
+A toy network is created and is solved using the above formulation. It is present in the directory named 'mytest' and 'myMatrix'. \verb;mystudyfile.py; runs Ioannis' code on the toy network and data, while the 'myMatrix' folder contains the file \verb;sympy_test.py; which implements the matrix formulation of writing the constraints. 
+
+\section{MKNI cell line data}
+We then compare how the constraints are written for the MKN1 cell line data in the folder MKN1. We find that, the results of the presolve step in solving MIP in CPLEX produces different results. This can be due to different order of the constraints when using the matrix formulation (\url{http://www-01.ibm.com/support/docview.wss?uid=swg21399979}). We check this by ensuring that the constraints are generated exactly the same as in Ioannis' code and this produces identical steps in solving the problem.  The script running this program is \verb;sympybased_test.py; and \verb;sympybased_{test.py};. The options for the ILP are read using the file \verb;leks_options.txt; (the options are read in different orientation, contrary to that of \verb;ilp_options.txt;) and the inputs are read using the file \verb;leks_inputs.txt; (this is different from that of Ioannis' because I removed an entry which was confounding: KRAS had three entries for inputs where in one instance, it was 1 and another it was denoted as 'NaN'. But this can be taken care of while making the Inputs matrix. The matrices are pre-made and are named 'InputsF.mtx' (Inputs), 'Mf.mtx'($M$) ,'Mindf.mtx' ($M_{ind}$), 'Rf.mtx' ($R$) and 'Pf.mtx' ($P$) .
+
+
+
+The results however, are not identical. This could be due to stochastics in the MIP solver and does not have anything to do with the way the problem is formulated. 
+%----------------------------------------------------------------------------------------
+%	BIBLIOGRAPHY
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\refname}{\spacedlowsmallcaps{References}} % For modifying the bibliography heading
+
+\bibliographystyle{plain}
+
+\bibliography{sample} % The file containing the bibliography
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
